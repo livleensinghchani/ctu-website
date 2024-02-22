@@ -2,7 +2,7 @@
     $db_server = 'localhost';
     $db_name = 'ctu';
     $db_user = 'root';
-    $db_password = 'a';
+    $db_password = '';
 
     $connection = '';
     try{

@@ -6,6 +6,7 @@
     <title>LogIn</title>
 </head>
 <body>
+    <h1>LogIn</h1>
     <a href="index.php">HOME</a>
 </body>
 </html>

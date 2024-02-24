@@ -6,7 +6,7 @@
     }
         
         // db credentials
-    $dbUserName = "raoot";
+    $dbUserName = "root";
     $dbUserPass = "";
     $dbServer = "localhost";
     $dbName = "ctu";

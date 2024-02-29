@@ -1,6 +1,5 @@
 <?php
     include("PHP\dataBase.php");
-    
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@
 </head>
 <body>
     <div>
-        
+        <a href="PHP/logIn.php">LogIn</a>
     </div>
 </body>
 </html>

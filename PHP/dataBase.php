@@ -24,5 +24,4 @@
     } else {
         echoToConsole("Connection Fail");
     }
-
 ?>

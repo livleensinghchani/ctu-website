@@ -14,8 +14,6 @@
     <script src="JS/script.js" defer></script>
 </head>
 <body>
-    <div>
-        <a href="PHP/logIn.php">LogIn</a>
-    </div>
+    
 </body>
 </html>

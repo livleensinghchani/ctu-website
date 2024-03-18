@@ -14,7 +14,7 @@
 
     try {
         $dbConnect = mysqli_connect($dbServer, $dbUserName, $dbUserPass, $dbName);
-    } catch (mysqli_sql_exception) {
+    } catch (mysqli_sql_exception $e) {
         echoToConsole("Invalid Connection Details");
     }
 

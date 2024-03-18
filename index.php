@@ -36,10 +36,18 @@
                 $result = $dbConnect->query($sql);
                     
                 $row = $result->fetch_assoc();
-                if($username == $row['username'] && $password == $row['password']) {
-                    echo "VALID LOGIN";
-                } else {
-                    echo 'INVALID LOGIN';
+                if(!empty($row)) {
+                    if($username == $row['username'] && $password == $row['password']) {
+                        $name = $row['name'];
+                        echo "VALID LOGIN";
+                        session_start();
+                        $_SESSION['username'] = $username;
+                        $_SESSION['name'] = $name;
+                        $_SESSION['type'] = $type;
+                        header("Location: PHP/home.php");
+                    } else {
+                        echo 'INVALID LOGIN';
+                    }
                 }
             } catch (mysqli_sql_exception) {
                 echo 'INVALID LOGIN';

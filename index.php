@@ -33,6 +33,7 @@
                     break;
             }
             try {
+                /** @var mysqli $dbConnect */
                 $result = $dbConnect->query($sql);
                     
                 $row = $result->fetch_assoc();

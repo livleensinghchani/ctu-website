@@ -1,5 +1,5 @@
 <?php
-    include("PHP\dataBase.php");
+    include("PHP/dataBase.php");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['username'];

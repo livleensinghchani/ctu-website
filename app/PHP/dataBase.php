@@ -7,8 +7,8 @@
         
         // db credentials
     $dbUserName = "root";
-    $dbUserPass = "";
-    $dbServer = "localhost";
+    $dbUserPass = "core";
+    $dbServer = "db";
     $dbName = "ctu";
     $dbConnect = '';
 

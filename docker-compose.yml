@@ -1,0 +1,28 @@
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - '8000:80'
+    volumes:
+      - ./app:/var/www/html
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php-fpm
+
+  php-fpm:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile.php
+    volumes:
+      - ./app:/var/www/html
+
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: core
+      MYSQL_DATABASE: ctu
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data: {}

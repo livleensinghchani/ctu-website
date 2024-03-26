@@ -7,6 +7,8 @@
     }
 
     session_destroy();
+    header("Location: ../index.php");
+    exit;
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +20,5 @@
 </head>
 <body>
     <h1>You were Loged Out!</h1>
-    <div><h1><a href="../index.php">LogIn</a></h1></div>
 </body>
 </html>

@@ -18,7 +18,6 @@
         echoToConsole("Invalid Connection Details");
     }
 
-       
     if($dbConnect) {  // check if connection success
         echoToConsole("Connection Success"); 
     } else {

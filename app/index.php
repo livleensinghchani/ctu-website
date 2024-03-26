@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include("PHP/dataBase.php");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -17,7 +18,8 @@
             switch ($type) {
                 case 'Admin':
                     //Admin Login
-                    $sql = "SELECT * FROM admin WHERE username = $username";
+                    echo "Command Disabled for now!";
+                    // $sql = "SELECT * FROM admin WHERE username = $username";
                     break;
                 case 'Student':
                     //Student Login
@@ -41,7 +43,6 @@
                     if($username == $row['username'] && $password == $row['password']) {
                         $name = $row['name'];
                         echo "VALID LOGIN";
-                        session_start();
                         $_SESSION['username'] = $username;
                         $_SESSION['name'] = $name;
                         $_SESSION['type'] = $type;
@@ -73,9 +74,9 @@
         <div class="LoginWrapper">
             <form action="index.php" method="post">
                 <select name="userType" id="userType">
-                    <option value="Admin">Admin</option>
                     <option value="Student">Student</option>
                     <option value="Staff">Staff</option>
+                    <option value="Admin">Admin</option>
                 </select>
                 UserID<input type="text" name="username">
                 Password<input type="text" name="password">

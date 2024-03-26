@@ -6,6 +6,8 @@
         header("Location: ../index.php");
         exit;
     }
+
+    $userData = $_SESSION['userData'];
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +28,31 @@
     <h3><?php echo $_SESSION['username']?></h3>
     <div><h1><a href="logout.php">LogOut</a></h1></div>
     <h2>INBOX</h2>
+    <h3>Reporting Status 
+        <?php 
+            if($_SESSION['type'] == 'staff') {
+                echo 'pending:';
+                echo $userData["programAssigned"]; 
 
+                echo '<br>';
+                $sql = 'SELECT * FROM student WHERE reportingStatus = 0;';
+
+                /** @var mysqli $dbConnect */
+                $result = $dbConnect->query($sql);
+
+                if($result) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo $row['username'];
+                        echo $row['name'];
+                        echo "<br>";
+                    }
+                }
+            }else if($_SESSION['type'] == 'student') {
+                if($userData['reportingStatus'] == 0) {
+                    echo('<a href="reportingForm.php">Reporting From</a>');
+                }
+            }
+        ?>
+    </h3>
 </body>
 </html>

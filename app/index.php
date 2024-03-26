@@ -16,16 +16,16 @@
             $type = filter_var($type, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             switch ($type) {
-                case 'Admin':
+                case 'admin':
                     //Admin Login
                     $outMessage = 'Command Disabled for now!';
                     // $sql = "SELECT * FROM admin WHERE username = $username";
                     break;
-                case 'Student':
+                case 'student':
                     //Student Login
                     $sql = "SELECT * FROM student WHERE username = $username";
                     break;
-                case 'Staff':
+                case 'staff':
                     //Staff Login
                     $sql = "SELECT * FROM staff WHERE username = $username";
                     break;
@@ -41,10 +41,14 @@
                 if(!empty($row)) {
                     if($username == $row['username'] && $password == $row['password']) {
                         $name = $row['name'];
+
                         $outMessage = 'Valid LogIn';
+
                         $_SESSION['username'] = $username;
                         $_SESSION['name'] = $name;
                         $_SESSION['type'] = $type;
+                        $_SESSION['userData'] = $row;
+
                         header("Location: PHP/home.php");
                         exit();
                     } else {
@@ -77,9 +81,9 @@
         <div class="LoginWrapper">
             <form action="index.php" method="post">
                 <select name="userType" id="userType">
-                    <option value="Student">Student</option>
-                    <option value="Staff">Staff</option>
-                    <option value="Admin">Admin</option>
+                    <option value="student">Student</option>
+                    <option value="staff">Staff</option>
+                    <!-- <option value="admin">Admin</option> -->
                 </select>
                 UserID<input type="text" name="username">
                 Password<input type="text" name="password">

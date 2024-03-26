@@ -7,7 +7,7 @@
         $password = $_POST['password'];
         $type = $_POST['userType'];
         if(empty($username) || empty($password) || empty($type)) {
-            echo "EMPTY";
+            $outMessage = 'Empty Login Fields';
         } else {
 
             //Sanitization of Input
@@ -18,7 +18,7 @@
             switch ($type) {
                 case 'Admin':
                     //Admin Login
-                    echo "Command Disabled for now!";
+                    $outMessage = 'Command Disabled for now!';
                     // $sql = "SELECT * FROM admin WHERE username = $username";
                     break;
                 case 'Student':
@@ -31,7 +31,6 @@
                     break;
                 default:
                     //invalid Type
-
                     break;
             }
             try {
@@ -42,19 +41,23 @@
                 if(!empty($row)) {
                     if($username == $row['username'] && $password == $row['password']) {
                         $name = $row['name'];
-                        echo "VALID LOGIN";
+                        $outMessage = 'Valid LogIn';
                         $_SESSION['username'] = $username;
                         $_SESSION['name'] = $name;
                         $_SESSION['type'] = $type;
                         header("Location: PHP/home.php");
+                        exit();
                     } else {
-                        echo 'INVALID LOGIN';
+                        $outMessage = 'Invalid Password';
                     }
                 }
             } catch (mysqli_sql_exception) {
-                echo 'INVALID LOGIN';
+                $outMessage = 'Invalid User';
             }
         }
+    }
+    if(isset($outMessage)) {
+        echoToConsole($outMessage);
     }
 ?>
 

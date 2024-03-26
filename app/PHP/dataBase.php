@@ -4,6 +4,8 @@
             // check in console!
         echo '<script> console.log("'.$dataOut.'");</script>';
     }
+
+    $dbLog;
         
         // db credentials
     $dbUserName = "root";
@@ -15,12 +17,15 @@
     try {
         $dbConnect = mysqli_connect($dbServer, $dbUserName, $dbUserPass, $dbName);
     } catch (mysqli_sql_exception $e) {
-        echoToConsole("Invalid Connection Details");
+        $dbLog = 'Invalid Connection Details';
     }
 
-    if($dbConnect) {  // check if connection success
-        echoToConsole("Connection Success"); 
-    } else {
-        echoToConsole("Connection Fail");
+    if(!$dbConnect) {  // check if connection not successful
+        $dbLog = 'Connection Fail';
     }
+
+    if(isset($dbLog)) {
+        echoToConsole($dbLog);
+    }
+
 ?>

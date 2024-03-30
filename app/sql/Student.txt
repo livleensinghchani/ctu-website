@@ -1,2 +1,0 @@
-INSERT INTO student (username, password, name, program, section, classGroup, reportingStatus, semester, active, totalSemester) 
-VALUES ('72311281', 'CHANI', 'Livleen Singh Chani', 'BCA-N', '2', 'A', '0', '1', '1', '6');

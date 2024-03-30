@@ -1,2 +1,0 @@
-INSERT INTO staff (username, password, name, programAssigned, sectionAssigned)
-VALUES ('CT0001', 'masterji', 'Amrinder Singh', 'BCA-N', '2');

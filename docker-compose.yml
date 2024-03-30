@@ -21,6 +21,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: core
       MYSQL_DATABASE: ctu
+    ports:
+      - '3306:3306'
     volumes:
       - db-data:/var/lib/mysql
 

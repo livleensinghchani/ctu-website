@@ -2,5 +2,21 @@
     "DockerRun.DisableDockerrc": true,
     "DockerRun.Containers": [
         "4d0df6d00c65"
+    ],
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "CTU",
+            "database": "ctu",
+            "username": "root",
+            "askForPassword": true
+        }
     ]
 }

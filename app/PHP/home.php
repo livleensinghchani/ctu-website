@@ -47,7 +47,7 @@
                         echo "<br>";
                     }
                 }
-            }else if($_SESSION['type'] == 'student') {
+            } else if($_SESSION['type'] == 'student') {
                 if($userData['reportingStatus'] == 0) {
                     echo('<a href="reportingForm.php">Reporting From</a>');
                 } else {

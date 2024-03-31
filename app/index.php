@@ -46,7 +46,6 @@
 
                         $_SESSION['username'] = $username;
                         $_SESSION['name'] = $name;
-                        $_SESSION['type'] = $type;
                         $_SESSION['userData'] = $row;
 
                         header("Location: PHP/home.php");

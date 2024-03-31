@@ -1,9 +1,11 @@
+-- @block School
 CREATE TABLE school (
     id VARCHAR(255) PRIMARY KEY,
     name VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE program (
+-- @block Program
+CREATE TABLE  program (
     id VARCHAR(255) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     specialization VARCHAR(255) NOT NULL,
@@ -12,6 +14,7 @@ CREATE TABLE program (
     FOREIGN KEY school REFERENCES school(id)
 );
 
+-- @block Staff
 CREATE TABLE staff (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -23,6 +26,7 @@ CREATE TABLE staff (
     email VARCHAR(255) NOT NULL
 );
 
+-- @block Class
 CREATE TABLE class (
     id INT AUTO_INCREMENT PRIMARY KEY,
     FOREIGN KEY program REFERENCES program(id),
@@ -35,6 +39,7 @@ CREATE TABLE class (
     FOREIGN KEY coordinator REFERENCES staff(id)
 );
 
+-- @block Student
 CREATE TABLE student (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -48,6 +53,8 @@ CREATE TABLE student (
     no_dues_form TINYINT(1) DEFAULT NULL
 );
 
+
+-- @block Reporting Form
 CREATE TABLE reporting_form (
     id INT AUTO_INCREMENT PRIMARY KEY,
     FOREIGN KEY registration_number REFERENCES student(id),

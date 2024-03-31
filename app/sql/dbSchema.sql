@@ -70,6 +70,6 @@ CREATE TABLE reporting_form {
     zip_code INT(10) NOT NULL,
     state VARCHAR(255) NOT NULL,
     country VARCHAR(255) NOT NULL,
-    proof VARCHAR(255) NOT NULL
+    proof INT(255) NOT NULL
 };
     

@@ -59,7 +59,7 @@ CREATE TABLE student (
     no_dues_form TINYINT(1) DEFAULT NULL
 );
 
-
+-- Needs Fixing
 -- @block Reporting Form
 CREATE TABLE reporting_form (
     id INT AUTO_INCREMENT PRIMARY KEY,

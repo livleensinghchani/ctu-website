@@ -59,7 +59,6 @@ CREATE TABLE student (
     no_dues_form TINYINT(1) DEFAULT NULL
 );
 
--- Needs Fixing
 -- @block Reporting Form
 CREATE TABLE reporting_form (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -78,10 +77,8 @@ CREATE TABLE reporting_form (
     FOREIGN KEY (school) REFERENCES school(id),
     semester INT(2) NOT NULL,
     mode VARCHAR(255) NOT NULL,
-    father VARCHAR(255) NOT NULL,
-    father_mobile INT(10) NOT NULL,
-    mother VARCHAR(255) NOT NULL,
-    mother_mobile INT(10) NOT NULL,
+    guardian VARCHAR(255) NOT NULL,
+    guardian_mobile VARCHAR(255) NOT NULL,
     address TEXT NOT NULL,
     city VARCHAR(255) NOT NULL,
     zip_code INT(10) NOT NULL,

@@ -30,29 +30,37 @@
     <h2>INBOX</h2>
     <h3>Reporting Status 
         <?php 
-            if($_SESSION['type'] == 'staff') {
-                echo 'pending:';
-                echo $userData["programAssigned"]; 
+            if($_SESSION['userType'] == 'staff') {
+                //TODO: Staff Panel 
+                $username = $_SESSION['username'];
+                $sql = "SELECT * FROM class WHERE mentor = $username;";
 
-                echo '<br>';
-                $sql = 'SELECT * FROM student WHERE reportingStatus = 0;';
+                try {
+                    /** @var mysqli $dbConnect */
+                    $classAssigned = $dbConnect->query($sql);
 
-                /** @var mysqli $dbConnect */
-                $result = $dbConnect->query($sql);
-
-                if($result) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo $row['username'];
-                        echo $row['name'];
-                        echo "<br>";
+                    if($classAssigned->num_rows > 0) {
+                        while($row = $classAssigned->fetch_assoc()) {
+                            echo "Program: " . $row['program'] . $row['section'];
+                        }
+                    } else {
+                        echo "No Class Assigned";
                     }
+
+                } catch(mysqli_sql_exception) {
+                    $outMessage = 'Invalid Password';
                 }
-            } else if($_SESSION['type'] == 'student') {
-                if($userData['reportingStatus'] == 0) {
+                
+            } else if($_SESSION['userType'] == 'student') {
+                if(!$userData['reporting_form']) {
                     echo('<a href="reportingForm.php">Reporting From</a>');
                 } else {
                     echo('DONE');
                 }
+            }
+
+            if(isset($outMessage)) {
+                echoToConsole($outMessage);
             }
         ?>
     </h3>

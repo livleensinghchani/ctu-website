@@ -23,11 +23,11 @@
                     break;
                 case 'student':
                     //Student Login
-                    $sql = "SELECT * FROM student WHERE username = $username";
+                    $sql = "SELECT * FROM student WHERE id = $username";
                     break;
                 case 'staff':
                     //Staff Login
-                    $sql = "SELECT * FROM staff WHERE username = $username";
+                    $sql = "SELECT * FROM staff WHERE id = $username";
                     break;
                 default:
                     //invalid Type
@@ -39,7 +39,7 @@
                     
                 $row = $result->fetch_assoc();
                 if(!empty($row)) {
-                    if($username == $row['username'] && $password == $row['password']) {
+                    if($username == $row['id'] && $password == $row['password']) {
                         $name = $row['name'];
 
                         $outMessage = 'Valid LogIn';
@@ -47,13 +47,14 @@
                         $_SESSION['username'] = $username;
                         $_SESSION['name'] = $name;
                         $_SESSION['userData'] = $row;
+                        $_SESSION['userType'] = $type;
 
                         header("Location: PHP/home.php");
                         exit();
                     } else {
                         $outMessage = 'Invalid Password';
                     }
-                }
+                } else echoToConsole("=ERROR=");
             } catch (mysqli_sql_exception) {
                 $outMessage = 'Invalid User';
             }

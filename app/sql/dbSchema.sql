@@ -24,7 +24,7 @@ CREATE TABLE staff (
     FOREIGN KEY (school) REFERENCES school(id),
     type VARCHAR(255) NOT NULL,
     active TINYINT(1) NOT NULL,
-    mobile INT NOT NULL,
+    mobile VARCHAR(12) NOT NULL,
     email VARCHAR(255) NOT NULL
 );
 
@@ -52,7 +52,7 @@ CREATE TABLE student (
     active TINYINT(1) NOT NULL,
     class INT NOT NULL,
     FOREIGN KEY (class) REFERENCES class(id),
-    mobile INT NOT NULL,
+    mobile VARCHAR(12) NOT NULL,
     email VARCHAR(255) NOT NULL,
     nationality VARCHAR(255) NOT NULL,
     reporting_form TINYINT(1) DEFAULT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE reporting_form (
     name VARCHAR(255) NOT NULL,
     class INT NOT NULL,
     FOREIGN KEY (class) REFERENCES class(id),
-    mobile INT NOT NULL,
+    mobile VARCHAR(12) NOT NULL,
     email VARCHAR(255) NOT NULL,
     program VARCHAR(255) NOT NULL,
     FOREIGN KEY (program) REFERENCES program(id),
@@ -78,7 +78,7 @@ CREATE TABLE reporting_form (
     semester INT(2) NOT NULL,
     mode VARCHAR(255) NOT NULL,
     guardian VARCHAR(255) NOT NULL,
-    guardian_mobile INT NOT NULL,
+    guardian_mobile VARCHAR(12) NOT NULL,
     address TEXT NOT NULL,
     city VARCHAR(255) NOT NULL,
     zip_code INT(10) NOT NULL,

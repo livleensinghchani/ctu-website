@@ -31,7 +31,7 @@
     <h3>Reporting Status</h3>
     <?php 
         if($_SESSION['userType'] == 'staff') {
-            //TODO: Staff Panel 
+            //SECTION: Staff Panel 
             $username = $_SESSION['username'];
             
             try {
@@ -44,7 +44,7 @@
                         echo "Program: " . $d_class['program'] . $d_class['section'];
                         
                         $classId = $d_class['id'];
-                        $studentSQL = "SELECT * FROM student WHERE class = $classId;";
+                        $studentSQL = "SELECT * FROM student WHERE class = $classId ORDER BY id ASC;";
 
                         /** @var mysqli $dbConnect */
                         $studentList = $dbConnect->query($studentSQL);
@@ -56,11 +56,13 @@
                         }
 
                         echo "<br>";
-                        //FIXME: Remove Me! 
+                        // REVIEW Remove me!
+                       
                     }
                 } else {
                     echo "No Class Assigned";
                 }
+                // !SECTION Staff Panel Ends
             } catch(mysqli_sql_exception) {
                 $outMessage = 'Invalid Password';
             }

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("PHP/dataBase.php");
+    include("Core/dataBase.php");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['username'];
@@ -49,7 +49,7 @@
                         $_SESSION['userData'] = $row;
                         $_SESSION['userType'] = $type;
 
-                        header("Location: PHP/home.php");
+                        header("Location: HomePage/home.php");
                         exit();
                     } else {
                         $outMessage = 'Invalid Password';
@@ -74,13 +74,6 @@
     <link rel="icon" href="assets/Logo.png">
 
     <link rel="stylesheet" href="CSS/style.css">
-    
-    <!-- //SECTION - JS Version  -->
-        <!-- //NOTE - Development Tag  -->
-    <!-- <script src="JS/script.js?v=<?=time()?>" defer></script> -->
-        <!-- //NOTE - Production Tag  -->
-    <script src="JS/script.js?v=<?php echo $versionFile ?>" defer></script>
-    <!-- //!SECTION -->
 </head>
 <body>
     <div class="MainWrapper">

@@ -22,8 +22,11 @@
 <!--!SECTION -->
 </head>
 <body>
-    <button id="Student" type="submit">Student</button>
-    <button id="Staff" type="submit">Staff</button>
-    <button id="Admin" type="submit">Admin</button>
+    <button id="Student" type="submit" onclick="sideBar('Student')">Student</button>
+    <button id="Staff" type="submit" onclick="sideBar('Staff')">Staff</button>
+    <button id="Admin" type="submit" onclick="sideBar('Admin')">Admin</button>
+    <div id="dataPanel">
+        <iframe src="../Core/defaultFrame.html" frameborder="0"></iframe>
+    </div>
 </body>
 </html>

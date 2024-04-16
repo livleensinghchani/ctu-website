@@ -5,6 +5,8 @@
         echo '<script> console.log("'.$dataOut.'");</script>';
     }
 
+    $versionFile = 0.01;
+
     $dbLog;
         
         // db credentials

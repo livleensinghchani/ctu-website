@@ -74,7 +74,13 @@
     <link rel="icon" href="assets/Logo.png">
 
     <link rel="stylesheet" href="CSS/style.css">
-    <script src="JS/script.js" defer></script>
+    
+    <!-- //SECTION - JS Version  -->
+        <!-- //NOTE - Development Tag  -->
+    <!-- <script src="JS/script.js?v=<?=time()?>" defer></script> -->
+        <!-- //NOTE - Production Tag  -->
+    <script src="JS/script.js?v=<?php echo $versionFile ?>" defer></script>
+    <!-- //!SECTION -->
 </head>
 <body>
     <div class="MainWrapper">

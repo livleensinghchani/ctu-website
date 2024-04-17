@@ -26,6 +26,7 @@
     <button id="Staff" type="submit" onclick="sideBar('Staff')">Staff</button>
     <button id="Admin" type="submit" onclick="sideBar('Admin')">Admin</button>
     <div id="dataPanel">
+        <!-- LINK - app\Core\defaultFrame.html -->
         <iframe src="../Core/defaultFrame.html" frameborder="0"></iframe>
     </div>
 </body>

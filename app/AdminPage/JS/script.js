@@ -4,7 +4,9 @@ function sideBar(selection) {
     switch (selection) {
         case "Student":
             console.log("STUDENT");
-            dataPanel.innerHTML = ('<iframe src="studentFrame/studentF.html" frameborder="0"></iframe>');
+            //LINK - app\AdminPage\studentFrame\studentF.html
+            dataPanel.innerHTML = 
+            ('<iframe src="studentFrame/studentF.html" frameborder="0"></iframe>');
             break;
         case "Staff":
             console.log("STAFF");

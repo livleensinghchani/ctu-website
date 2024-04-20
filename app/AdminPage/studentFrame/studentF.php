@@ -1,3 +1,15 @@
+<?php 
+    session_start();
+    include($_SERVER['DOCUMENT_ROOT'] . '/Core/dataBase.php');
+
+    if(!isset($_SESSION['username'])) {
+        header("Location: " . $_SERVER['DOCUMENT_ROOT'] . 'index.php');
+        exit;
+    }
+
+    $userData = $_SESSION['userData'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +18,7 @@
     <title>CTU</title>
 </head>
 <body>
-    <button type="button">Add New Student</button>
+    <a href="insertStudent/insertStudent.php">Add New Student</a>
     <button type="button">Find A Student</button>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php 
-        // To make php print debug in console
+        //NOTE - To make php print debug in console
     function echoToConsole($dataOut) {
             // check in console!
         echo '<script> console.log("'.$dataOut.'");</script>';
@@ -9,7 +9,7 @@
     
     //NOTE - Production Version
     $versionFile = "A0.01";
-    $version = 4;
+    $version; //NOTE - Use this in linking PHP and JS
     if($productionBuild) {
         $version = $versionFile;
     } else {
@@ -19,7 +19,7 @@
 
     $dbLog;
         
-        // db credentials
+        //NOTE - db credentials
     $dbUserName = "root";
     $dbUserPass = "core";
     $dbServer = "db";

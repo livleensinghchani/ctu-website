@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("Core/dataBase.php");
+    include($_SERVER['DOCUMENT_ROOT'] . '/Core/dataBase.php');
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['username'];

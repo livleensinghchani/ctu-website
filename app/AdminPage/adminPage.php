@@ -1,9 +1,9 @@
 <?php 
     session_start();
-    include("../Core/dataBase.php");
+    include($_SERVER['DOCUMENT_ROOT'] . '/Core/dataBase.php');
 
     if(!isset($_SESSION['username'])) {
-        header("Location: ../index.php");
+        header("Location: " . $_SERVER['DOCUMENT_ROOT'] . 'index.php');
         exit;
     }
 
@@ -18,7 +18,7 @@
     <title>adminPage</title>
 
 <!--SECTION - JS Version  -->
-    <script src="JS/script.js?v=<?php echo $version ?>"></script>
+    <script src="JS/script.js?v=<?php echo $version ?> defer"></script>
 <!--!SECTION -->
 </head>
 <body>

@@ -1,43 +1,43 @@
 <?php 
-        //NOTE - To make php print debug in console
-    function echoToConsole($dataOut) {
-            // check in console!
-        echo '<script> console.log("'.$dataOut.'");</script>';
-    }
+    //NOTE - To make php print debug in console
+  function echoToConsole($dataOut) {
+      // check in console!
+    echo '<script> console.log("'.$dataOut.'");</script>';
+  }
 //SECTION - Check if Build is Production or Development
-    $productionBuild = false;
+  $productionBuild = false;
     
-    //NOTE - Production Version
-    $versionFile = "A0.01";
-    $version; //NOTE - Use this in linking PHP and JS
-    if($productionBuild) {
-        $version = $versionFile;
-    } else {
-        $version = time();
-    }
+  //NOTE - Production Version
+  $versionFile = "A0.01";
+  $version; //NOTE - Use this in linking PHP and JS
+  if($productionBuild) {
+    $version = $versionFile;
+  } else {
+    $version = time();
+  }
 
 
-    $dbLog;
+  $dbLog;
         
-        //NOTE - db credentials
-    $dbUserName = "root";
-    $dbUserPass = "core";
-    $dbServer = "db";
-    $dbName = "ctu";
-    $dbConnect = '';
+    //NOTE - db credentials
+  $dbUserName = "root";
+  $dbUserPass = "core";
+  $dbServer = "db";
+  $dbName = "ctu";
+  $dbConnect = '';
 
-    try {
-        $dbConnect = mysqli_connect($dbServer, $dbUserName, $dbUserPass, $dbName);
-    } catch (mysqli_sql_exception $e) {
-        $dbLog = 'Invalid Connection Details';
-    }
+  try {
+    $dbConnect = mysqli_connect($dbServer, $dbUserName, $dbUserPass, $dbName);
+  } catch (mysqli_sql_exception $e) {
+    $dbLog = 'Invalid Connection Details';
+  }
 
-    if(!$dbConnect) {  // check if connection not successful
-        $dbLog = 'Connection Fail';
-    }
+  if(!$dbConnect) {  // check if connection not successful
+    $dbLog = 'Connection Fail';
+  }
 
-    if(isset($dbLog)) {
-        echoToConsole($dbLog);
-    }
+  if(isset($dbLog)) {
+    echoToConsole($dbLog);
+  }
 
 ?>

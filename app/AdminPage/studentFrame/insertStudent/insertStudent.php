@@ -71,7 +71,7 @@
             if($dlProgram['school'] == $dlSchool['id']) {
               echo('
                 <div class="programName">
-                  <input type="checkbox" onchange="addToFilter(this)" name="programSelect" id="'.$dlProgram['id'].'">
+                  <input type="checkbox" onchange="addToFilter(this)" name="programSelect" id="'.$dlProgram['id'].'" class="'.$dlSchool['id'].'_filter">
                   <label for="'.$dlProgram['id'].'">'.$dlProgram['id'].'</label>
                 </div>
               ');

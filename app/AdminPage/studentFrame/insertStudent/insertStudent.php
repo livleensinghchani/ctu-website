@@ -49,32 +49,41 @@
   <button type="button">Filter</button>
 <!-- SECTION - Filter For Searching the class  -->
   <form action="insertStudent.php" method="post" id="filterList">
-    <?php
-    // Displays all available Schools
-      if($dataSchoolList->num_rows > 0) {
-        while($dlSchool = $dataSchoolList->fetch_assoc()) {
-        //Skips the Admin school as it is not required in the list
-          if($dlSchool['id'] == 'admin') {
-            continue;
-          }
-          echo('<div><div class="schoolName"><input type="checkbox" name="schoolSelect" id="'.$dlSchool['id'].'"><label for="'.$dlSchool['id'].'">'.$dlSchool['id'].'</label></div>');
-                    
-        // Displays all available Programs
-          if($dataProgramList->num_rows > 0) {
-            while($dlProgram = $dataProgramList->fetch_assoc()) {
-              if($dlProgram['school'] == $dlSchool['id']) {
-                echo ($dlProgram['id']);
-              }
+  <?php
+  // Displays all available Schools
+    if($dataSchoolList->num_rows > 0) {
+      while($dlSchool = $dataSchoolList->fetch_assoc()) {
+      //Skips the Admin school as it is not required in the list
+        if($dlSchool['id'] == 'admin') {
+          continue;
+        }
+        echo('
+          <div>
+            <div class="schoolName">
+              <input type="checkbox" onchange="addToFilter(this)" name="schoolSelect" id="'.$dlSchool['id'].'">
+              <label for="'.$dlSchool['id'].'">'.$dlSchool['id'].'</label>
+            </div>
+        ');
+                  
+      // Displays all available Programs
+        if($dataProgramList->num_rows > 0) {
+          while($dlProgram = $dataProgramList->fetch_assoc()) {
+            if($dlProgram['school'] == $dlSchool['id']) {
+              echo('
+                <div class="programName">
+                  <input type="checkbox" onchange="addToFilter(this)" name="programSelect" id="'.$dlProgram['id'].'">
+                  <label for="'.$dlProgram['id'].'">'.$dlProgram['id'].'</label>
+                </div>
+              ');
             }
           }
         }
         echo ('</div>');
       }
-    ?>
+    }
+  ?>
   </form>
-  <hr>
-
-    
+  <hr>    
 
 <!-- !SECTION -->
   <?php

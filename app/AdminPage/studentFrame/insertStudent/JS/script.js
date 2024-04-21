@@ -27,13 +27,37 @@ function multiCheck(school, boxChecked) {
   }
 }
 
+// If all Checked under one school, School should also be checked and vise versa.
+function clumpCheck(element) {
+  let schoolName = element.className.replace("_filter", "");
+  let selectedTags = document.getElementsByClassName(element.className);
+  let schoolFilter = document.getElementById(schoolName+"_select");
+  console.log(schoolFilter);
+
+  let allChecked = true;
+  for (let index = 0; index < selectedTags.length; index++) {
+    const element = selectedTags[index];
+    if(!element.checked) {
+      allChecked = false;
+    }
+  }
+  for (let index = 0; index < selectedTags.length; index++) {
+    const element = selectedTags[index];
+    if(allChecked) {
+    //  schoolFilter.style.display = none; 
+    } else {
+      // schoolFilter.style.display = 'block'; 
+    }
+  }
+}
+
 // We need this because without this duplicate entries will show up in Filter
 function checkIfExist(element) { // Checking if the element exist in the Filter
   if(element.name == 'schoolSelect') {
-    if(filterSchool.querySelector('#'+element.id)) {
+    if(filterSchool.querySelector('#'+element.id+'_select')) {
       multiCheck(element.id, element.checked);
-      // console.log('Filter Exist');
-      filterSchool.querySelector('#'+element.id).remove();
+      filterSchool.querySelector('#'+element.id+'_select').remove();
+      // Returns 0 if ('Filter Exist');
       return 0;
     } else {
       multiCheck(element.id, element.checked);
@@ -41,12 +65,14 @@ function checkIfExist(element) { // Checking if the element exist in the Filter
       return 1;
     }
   } else if(element.name == 'programSelect') {
-    if(filterProgram.querySelector('#'+element.id)) {
-      // console.log('Filter Exist');
-      filterProgram.querySelector('#'+element.id).remove();
+    if(filterProgram.querySelector('#'+element.id+'_select')) {
+      filterProgram.querySelector('#'+element.id+'_select').remove();
+      clumpCheck(element);
+      // Returns 0 if ('Filter Exist');
       return 0;
     } else {
-      // console.log('Filter Not Exist');
+      clumpCheck(element);
+      // Returns 1 if ('Filter Not Exist');
       return 1;
     }
   }
@@ -56,9 +82,9 @@ function checkIfExist(element) { // Checking if the element exist in the Filter
 function addToFilter(objectSelected) {
   if(checkIfExist(objectSelected)) {
     if(objectSelected.name == 'schoolSelect') {
-      filterSchool.innerHTML += '<div class="schoolDivFilter" id="'+ objectSelected.id +'">'+ objectSelected.id +'</div>';
+      filterSchool.innerHTML += '<div class="schoolDivFilter" id="'+ objectSelected.id +'_select">'+ objectSelected.id +'</div>';
     } else if(objectSelected.name == 'programSelect') {
-      filterProgram.innerHTML += '<div class="programDivFilter" id="'+ objectSelected.id +'">'+ objectSelected.id +'</div>';
+      filterProgram.innerHTML += '<div class="programDivFilter" id="'+ objectSelected.id +'_select">'+ objectSelected.id +'</div>';
     }
   }
 }

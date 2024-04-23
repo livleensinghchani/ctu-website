@@ -41,10 +41,11 @@ function clumpCheck(element) {
       allChecked = false;
     }
   }
+  console.log(allChecked);
   for (let index = 0; index < selectedTags.length; index++) {
     const element = selectedTags[index];
     if(allChecked) {
-    //  schoolFilter.style.display = none; 
+      
     } else {
       // schoolFilter.style.display = 'block'; 
     }
@@ -67,11 +68,9 @@ function checkIfExist(element) { // Checking if the element exist in the Filter
   } else if(element.name == 'programSelect') {
     if(filterProgram.querySelector('#'+element.id+'_select')) {
       filterProgram.querySelector('#'+element.id+'_select').remove();
-      clumpCheck(element);
       // Returns 0 if ('Filter Exist');
       return 0;
     } else {
-      clumpCheck(element);
       // Returns 1 if ('Filter Not Exist');
       return 1;
     }
@@ -87,4 +86,5 @@ function addToFilter(objectSelected) {
       filterProgram.innerHTML += '<div class="programDivFilter" id="'+ objectSelected.id +'_select">'+ objectSelected.id +'</div>';
     }
   }
+  clumpCheck(objectSelected);
 }
